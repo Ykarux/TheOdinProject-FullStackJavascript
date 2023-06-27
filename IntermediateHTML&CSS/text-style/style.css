@@ -1,0 +1,63 @@
+@font-face {
+    font-family: "Fira Code";
+    src: url("./fonts/FiraCode-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Fira Code";
+    src: url("./fonts/FiraCode-Bold.ttf");
+    font-weight: bold;
+}
+
+* {
+    border: .5px solid black;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+.customFont {
+    font-family: "Euphemia UCAS", sans-serif;
+}
+
+.downloadedFont {
+    font-family: "Fira Code", sans-serif;
+}
+
+.downloadedFontBold {
+    font-weight: bold;
+}
+
+.paragraphItalic {
+    font-style: italic;
+}
+
+.customLetterSpacing {
+    letter-spacing: .5em;
+}
+
+.customLineHeight {
+    width: 400px;
+    line-height: 2.3;
+}
+
+.textTransform {
+    text-transform: uppercase;
+}
+
+.textTransformCapitalize {
+    text-transform: capitalize;
+}
+
+.textShadow {
+    text-shadow: 4px 4px 5px red;
+}
+
+.ellipsis {
+    width: 300px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    resize: horizontal;
+}
