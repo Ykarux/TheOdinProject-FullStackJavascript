@@ -1,0 +1,44 @@
+.hex {
+    background-color: #86DEFA;
+}
+
+.rgb {
+    background-color: rgb(134, 222, 250);
+
+}
+
+.hsl {
+    background-color: hsl(195, 92%, 75%);
+}
+
+.transparency {
+    background-color: rgb(134, 222, 250, 0.6);
+}
+
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+p {
+    font-size: 16px;
+}
+
+h1 + p {
+    font-size: 120%;
+}
+
+.box {
+    background-image: url(star.png);
+    background-repeat: no-repeat;
+}
+
+.box {
+    border: 5px solid #000;
+    width: 400px;
+    height: 200px;
+    background-position: center 20%;
+}
