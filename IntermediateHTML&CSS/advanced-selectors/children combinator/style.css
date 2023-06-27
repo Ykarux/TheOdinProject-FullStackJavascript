@@ -1,0 +1,8 @@
+* {
+    color: black;
+}
+
+/* this will select all div that are child, grand child, grand grand child, etc. of main */
+main div {
+    color: green;
+}
