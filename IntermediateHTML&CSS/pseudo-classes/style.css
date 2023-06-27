@@ -1,0 +1,12 @@
+article p:first-child {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+a:hover {
+    color: green;
+}
+
+a:focus {
+    color: pink;
+}
