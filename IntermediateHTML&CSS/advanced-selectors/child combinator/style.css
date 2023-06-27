@@ -1,0 +1,13 @@
+div {
+    color: black;
+}
+
+/* Only select direct children */
+main > div {
+    color: green;
+}
+
+/* Only select grand children */
+main > div > div {
+    color: blue;
+}
