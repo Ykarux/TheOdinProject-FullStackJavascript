@@ -1,0 +1,68 @@
+p:first-letter {
+    font-size: 2em;
+}
+
+p:first-line {
+    font-weight: bold;
+}
+
+article p:first-child::first-letter {
+    font-size: .5em;
+}
+
+article p:first-child::first-line {
+    font-weight: bold;
+}
+
+.paragraph::before {
+    content: "THIS IS A CONTENT ADDED WITH CSS PSEUDO ELEMENTS ::BEFORE"
+}
+
+.paragraph::after {
+    content: " ➥"
+}
+
+.secondParagraph {
+    margin-top: 50px;
+}
+
+.secondParagraph::before {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.arrow_box {
+    position: relative;
+    background: #88b7d5;
+    border: 4px solid #c2e1f5;
+}
+
+.arrow_box::before, .arrow_box::after {
+    content: "";
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    border: solid transparent;
+    height: 0;
+    width: 0;
+    pointer-events: none;
+}
+
+.arrow_box:after {
+    border-color: rgba(136, 183, 213, 0);
+    border-bottom-color: #88b7d5;
+    border-width: 30px;
+    margin-left: -30px;
+}
+
+.arrow_box:before {
+    border-color: rgba(194, 225, 245, 0);
+    border-bottom-color: #c2e1f5;
+    border-width: 36px;
+    margin-left: -36px;
+}
