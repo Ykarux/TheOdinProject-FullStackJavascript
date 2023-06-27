@@ -1,0 +1,13 @@
+* {
+    color: black;
+}
+
+/* this wil select the first div sibling to .group1 (=> .group2) */
+.group1 + div {
+    color: green;
+}
+
+/* this wil select the second div sibling to .group1 (=> .group2) */
+.group1 + div + div {
+    color: blue;
+}
