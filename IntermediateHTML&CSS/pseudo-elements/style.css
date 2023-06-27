@@ -66,3 +66,7 @@ article p:first-child::first-line {
     border-width: 36px;
     margin-left: -36px;
 }
+
+*::selection {
+    background-color: green;
+}
