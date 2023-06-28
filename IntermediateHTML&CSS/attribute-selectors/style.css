@@ -1,0 +1,30 @@
+/* will target everything that has a data-test attribute */
+
+[data-test] {
+    font-size: 20px;
+}
+
+/* will target every h1 that has a data-test attribute */
+h1[data-test] {
+    font-weight: bold;
+}
+
+/* will target every paragraphe that has a data-test attribute value equal first */
+p[data-test="first"] {
+    color: blue;
+}
+
+/* will target every paragraphe that has a data-test attribute value starting with f */
+p[data-test^="f"] {
+    background-color: pink;
+}
+
+/* will target every paragraphe that has a data-test attribute value finishing with d */
+p[data-test$="d"] {
+    background-color: green;
+}
+
+/* will target every paragraphe that has a data-test attribute value containing x */
+p[data-test*="x"] {
+    background-color: red;
+}
