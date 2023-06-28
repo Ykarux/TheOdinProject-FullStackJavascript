@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Form basic</title>
+		<link href="./style.css"
+		      rel="stylesheet">
+	</head>
+	<body>
+		<form action=""
+		      method="post">
+			<fieldset>
+				<legend>First part</legend>
+				<div>
+					<label for="inputText">Ceci est un text:</label>
+					<input id="inputText"
+					       name="basic_text"
+					       placeholder="tapez quelque chose..."
+					       type="text">
+				</div>
+				<div>
+					<label for="password">Entrez votre mot de passe</label>
+					<input id="password"
+					       name="password"
+					       placeholder="psst..."
+					       type="password">
+				</div>
+				<div>
+					<label for="email">Entrez votre email</label>
+					<input id="email"
+					       name="email"
+					       placeholder="test@test.test"
+					       type="email">
+				</div>
+			</fieldset>
+			<div>
+				<label for="amount">Amount :</label>
+				<input id="amount"
+				       name="amount"
+				       placeholder="2000"
+				       type="number">
+			</div>
+			<div>
+				<label for="date">Date :</label>
+				<input id="date"
+				       name="date"
+				       type="date">
+			</div>
+			<div>
+				<label for="textarea">Zone de texte libre</label>
+				<textarea cols="6"
+				          id="textarea"
+				          rows="5">Some initial content</textarea>
+			</div>
+			<div>
+				<label for="car">Choisissez votre voiture</label>
+				<select id="car"
+				        name="car">
+					<optgroup label="good_cars">
+						<option value="bmw">BMW</option>
+						<option selected
+						        value="audi">Audi
+						</option>
+
+						<option value="mercedes">Mercedes</option>
+					</optgroup>
+					<optgroup label="shit_cars">
+						<option value="fiat">Fiat</option>
+						<option value="renault">Renault</option>
+						<option value="peugeot">Peugeot</option>
+					</optgroup>
+				</select>
+			</div>
+			<div>
+				<h3>Best bike ?</h3>
+				<div>
+					<input id="ducati"
+					       name="best"
+					       type="radio"
+					       value="ducati">
+					<label for="ducati">Ducati</label>
+				</div>
+				<div>
+					<input checked
+					       id="kawa"
+					       name="best"
+					       type="radio"
+					       value="kawa">
+					<label for="kawa">Kawasaki</label>
+				</div>
+				<div>
+					<input id="bmw"
+					       name="best"
+					       type="radio"
+					       value="bmw">
+					<label for="bmw">BMW</label>
+				</div>
+			</div>
+			<div>
+				<h1>Pizza Toppings</h1>
+
+				<div>
+					<input checked
+					       id="sausage"
+					       name="topping"
+					       type="checkbox"
+					       value="sausage">
+					<label for="sausage">Sausage</label>
+				</div>
+
+				<div>
+					<input checked
+					       id="onions"
+					       name="topping"
+					       type="checkbox"
+					       value="onions">
+					<label for="onions">Onions</label>
+				</div>
+
+				<div>
+					<input id="pepperoni"
+					       name="topping"
+					       type="checkbox"
+					       value="pepperoni">
+					<label for="pepperoni">Pepperoni</label>
+				</div>
+
+				<div>
+					<input id="mushrooms"
+					       name="topping"
+					       type="checkbox"
+					       value="mushrooms">
+					<label for="mushrooms">Mushrooms</label>
+				</div>
+			</div>
+			<div>
+				<button type="submit">Click me</button>
+			</div>
+			<div>
+				<button type="reset">Reset</button>
+			</div>
+			<div>
+				<button type="button">Just a button</button>
+			</div>
+			<fieldset>
+				<legend>What would you like to drink?</legend>
+
+				<div>
+					<input id="coffee"
+					       name="drink"
+					       type="radio"
+					       value="coffee">
+					<label for="coffee">Coffee</label>
+				</div>
+
+				<div>
+					<input id="tea"
+					       name="drink"
+					       type="radio"
+					       value="tea">
+					<label for="tea">Tea</label>
+				</div>
+
+				<div>
+					<input id="soda"
+					       name="drink"
+					       type="radio"
+					       value="soda">
+					<label for="soda">Soda</label>
+				</div>
+
+			</fieldset>
+		</form>
+	</body>
+</html>
