@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Basic payement form</title>
+		<link href="./style.css"
+		      rel="stylesheet">
+	</head>
+	<body>
+		<form>
+			<h1>Payement form</h1>
+			<p>Required fields are followed by<strong><span aria-label="required">*</span></strong></p>
+			<section>
+				<h2>Contact Information</h2>
+				<fieldset>
+					<legend>Title</legend>
+					<ul>
+						<li>
+							<label for="title_1">King</label>
+							<input id="title_1"
+							       name="title"
+							       type="radio"
+							       value="K">
+						</li>
+						<li>
+							<label for="title_2">Queen</label>
+							<input id="title_2"
+							       name="title"
+							       type="radio"
+							       value="Q">
+						</li>
+						<li>
+							<label for="title_3">Joker</label>
+							<input id="title_3"
+							       name="title"
+							       type="radio"
+							       value="J">
+						</li>
+					</ul>
+				</fieldset>
+				<p>
+					<label for="name"><span>Name: </span><strong><span aria-label="required">*</span></strong></label>
+					<input id="name"
+					       name="username"
+					       required
+					       type="text">
+				</p>
+				<p>
+					<label for="mail"><span>Email: </span><strong><span aria-label="required">*</span></strong></label>
+					<input id="mail"
+					       name="usermail"
+					       required
+					       type="email">
+				</p>
+				<p>
+					<label for="pwd"><span>Passwrod: </span><strong><span aria-label="required">*</span></strong></label>
+					<input id="pwd"
+					       name="password"
+					       required
+					       type="password">
+				</p>
+			</section>
+			<section>
+				<h2>Payement information</h2>
+				<p>
+					<label for="card"><span>Card type:</span></label>
+					<select id="card"
+					        name="usercard">
+						<option value="visa">Visa</option>
+						<option value="mc">Mastercard</option>
+						<option value="amex">American Express</option>
+					</select>
+				</p>
+				<p>
+					<label for="number"><span>Card Number:</span><strong><span aria-label="required">*</span></strong></label>
+					<input id="number"
+					       name="cardnumber"
+					       required
+					       type="tel">
+				</p>
+				<p>
+					<label for="expiration"><span>Expiration Date</span><strong><span aria-label="required">*</span></strong></label>
+					<input id="expiration"
+					       pattern="^(0[1-9]|1[0-2])\/([0-9]{2})$"
+					       placeholder="MM/YY"
+					       required
+					       type="text">
+				</p>
+			</section>
+			<section>
+				<p>
+					<button type="submit">Validate the payement</button>
+				</p>
+			</section>
+		</form>
+	</body>
+</html>
