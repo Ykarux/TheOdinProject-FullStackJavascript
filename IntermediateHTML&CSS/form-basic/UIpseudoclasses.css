@@ -1,0 +1,55 @@
+input:required {
+    border: 1px solid black;
+}
+
+input:optional {
+    border: 1px solid silver;
+}
+
+input + span {
+    position: relative;
+}
+
+input + span::before {
+    position: absolute;
+    right: -20px;
+    top: 5px;
+}
+
+input:invalid {
+    border: 2px solid red;
+}
+
+input:invalid + span::before {
+    content: "✖";
+    color: red;
+}
+
+input:valid + span::before {
+    content: "✓";
+    color: green;
+}
+
+input:required + span::after {
+    color: white;
+    background-color: black;
+    content: "Required";
+    left: -70px;
+}
+
+input:out-of-range + span::after {
+    color: white;
+    background-color: red;
+    width: 155px;
+    content: "Outside allowable value range";
+    left: -182px;
+}
+
+input[type="text"]:disabled {
+    background: #eee;
+    border: 1px solid #ccc;
+}
+
+.disabled-label {
+    color: #aaa;
+}
