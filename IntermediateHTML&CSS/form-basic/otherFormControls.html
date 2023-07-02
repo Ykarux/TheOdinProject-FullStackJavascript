@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Other form controls</title>
+		<link href="./otherFormControls.css"
+		      rel="stylesheet">
+	</head>
+	<body>
+		<form>
+			<div>
+				<label for="textarea">Text area :</label>
+				<textarea cols="30"
+				          id="textarea"
+				          rows="8"></textarea>
+			</div>
+			<div>
+				<label for="select">Select :</label>
+				<select id="select"
+				        multiple
+				        name="select"
+				        size="2">
+					<optgroup label="fruits">
+						<option value="banana">Banana</option>
+						<option selected
+						        value="apple">Apple
+						</option>
+						<option value="strawberry">Strawberry</option>
+					</optgroup>
+					<optgroup label="vegetables">
+						<option value="carrot">Carrot</option>
+						<option value="potato">Potato</option>
+					</optgroup>
+				</select>
+			</div>
+			<div>
+				<label for="fruits">Data list :</label>
+				<input id="fruits"
+				       list="suggestion"
+				       name="fruits"
+				       type="text">
+				<datalist id="suggestion">
+					<label for="fruitsSugestion">Or select</label>
+					<select id="fruitsSugestion"
+					        name="fruitsSugestion">
+						<option>Apple</option>
+						<option>Banana</option>
+						<option>Blackberry</option>
+						<option>Blueberry</option>
+						<option>Lemon</option>
+						<option>Lychee</option>
+						<option>Peach</option>
+						<option>Pear</option>
+					</select>
+				</datalist>
+			</div>
+			<div>
+				<progress max="100"
+				          value="75">75 / 100
+				</progress>
+			</div>
+			<div>
+				<meter high="66"
+				       low="33"
+				       max="100"
+				       min="0"
+				       optimum="50"
+				       value="56">56/100
+				</meter>
+			</div>
+		</form>
+	</body>
+</html>
