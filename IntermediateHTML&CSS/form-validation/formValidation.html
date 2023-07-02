@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Form validation</title>
+		<link href="./formValidation.css"
+		      rel="stylesheet">
+	</head>
+	<body>
+		<form>
+			<label for="txt">Txt* :</label>
+			<input id="txt"
+			       maxlength="7"
+			       minlength="3"
+			       name="txt"
+			       required
+			       type="text">
+			<label for="quantity">Quantity* :</label>
+			<input id="quantity"
+			       max="10"
+			       min="5"
+			       name="quantity"
+			       required
+			       type="number">
+			<label for="zipcode">ZipCode* :</label>
+			<input id="zipcode"
+			       name="zipcode"
+			       pattern="(\d{5}([\-]\d{4})?)"
+			       placeholder="54345"
+			       required
+			       title="Please enter a valid zip code, example: 65251"
+			       type="text">
+			<button type="submit">Click me</button>
+		</form>
+	</body>
+</html>
