@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>More inputs type</title>
+		<link href="./moreInputsType.css"
+		      rel="stylesheet">
+	</head>
+	<body>
+		<form>
+			<div>
+				<label for="email">Email :</label>
+				<input id="email"
+				       multiple
+				       name="email"
+				       type="email">
+			</div>
+			<div>
+				<label for="search">Search :</label>
+				<input id="search"
+				       name="search"
+				       type="search">
+			</div>
+			<div>
+				<label for="tel">Tel :</label>
+				<input id="tel"
+				       name="tel"
+				       type="tel">
+			</div>
+			<div>
+				<label for="url">URL :</label>
+				<input id="url"
+				       name="url"
+				       type="url">
+			</div>
+			<div>
+				<label for="num">Num :</label>
+				<input id="num"
+				       max="10"
+				       min="1"
+				       name="num"
+				       step="2"
+				       type="number">
+			</div>
+			<div>
+				<label for="range">Range :</label>
+				<input id="range"
+				       max="500000"
+				       min="50000"
+				       name="range"
+				       step="100"
+				       type="range"
+				       value="250000">
+				<output class="output"
+				        for="range"></output>
+			</div>
+			<div>
+				<label for="date">Date :</label>
+				<input id="date"
+				       max="2013-09-13"
+				       min="2013-06-01"
+				       name="date"
+				       step="7"
+				       type="date">
+				<label for="datetime">Date time: </label>
+				<input id="datetime"
+				       name="datetime"
+				       type="datetime-local">
+				<label for="month">Month :</label>
+				<input id="month"
+				       name="month"
+				       type="month">
+				<label for="time">Time :</label>
+				<input id="time"
+				       name="time"
+				       type="time">
+				<label for="week">Week :</label>
+				<input id="week"
+				       name="week"
+				       type="week">
+			</div>
+			<div>
+				<label for="color">Color :</label>
+				<input id="color"
+				       name="color"
+				       type="color">
+			</div>
+			<button type="submit">Click</button>
+		</form>
+		<script>
+			const price = document.querySelector('#range')
+			const output = document.querySelector('.output')
+
+			output.textContent = price.value
+
+			price.addEventListener('input', () => {
+				output.textContent = price.value
+			})
+		</script>
+	</body>
+</html>
