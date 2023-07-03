@@ -6,6 +6,7 @@
     grid-auto-rows: 500px;
     column-gap: 10px;
     row-gap: 150px;
+    justify-content: end;
 }
 
 div {
