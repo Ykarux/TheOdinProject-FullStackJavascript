@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Objects and object constructor</title>
+
+	</head>
+	<body>
+		<script>
+			function Book(title, author, pagesNumber, read) {
+				this.title = title
+				this.author = author
+				this.pagesNumber = pagesNumber
+				this.read = read
+				this.info = function () {
+					let info = this.title + ' by ' + this.author + ', ' + this.pagesNumber + 'pages, '
+					read ? info += 'read yet' : info += 'not read yet'
+					return info
+				}
+			}
+
+			let book1 = new Book('Moi', 'Moi', 256, false)
+			console.log(book1.info())
+
+			function Player(name, marker) {
+				this.name = name
+				this.marker = marker
+				this.sayName = function () {
+					console.log(name)
+				}
+			}
+
+			const player1 = new Player('steve', 'X')
+			const player2 = new Player('also steve', 'O')
+
+			console.log(Object.getPrototypeOf(player1) === Player.prototype) // returns true
+			console.log(Object.getPrototypeOf(player2) === Player.prototype) // returns true
+
+			Player.prototype.sayHello = function () {
+				console.log('Hello, I\'m a player!');
+			}
+
+			player1.sayHello()
+			console.log(player1.valueOf())
+
+			let user = {
+				name: 'John',
+				surname: 'Smith',
+
+				set fullName(value) {
+					[this.name, this.surname] = value.split(' ');
+				},
+
+				get fullName() {
+					return `${this.name} ${this.surname}`;
+				}
+			};
+
+			let admin = {
+				__proto__: user,
+				isAdmin: true
+			};
+
+			alert(admin.fullName); // John Smith (*)
+
+			// setter triggers!
+			admin.fullName = 'Alice Cooper'; // (**)
+
+			alert(admin.fullName); // Alice Cooper, state of admin modified
+			alert(user.fullName); // John Smith, state of user protected
+		</script>
+	</body>
+</html>
