@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Tic Tac Toe</title>
+		<link href="./style.css"
+		      rel="stylesheet">
+	</head>
+	<body>
+		<div class="board">
+			<div class="spot"
+			     id="0"></div>
+			<div class="spot"
+			     id="1"></div>
+			<div class="spot"
+			     id="2"></div>
+			<div class="spot"
+			     id="3"></div>
+			<div class="spot"
+			     id="4"></div>
+			<div class="spot"
+			     id="5"></div>
+			<div class="spot"
+			     id="6"></div>
+			<div class="spot"
+			     id="7"></div>
+			<div class="spot"
+			     id="8"></div>
+		</div>
+		<label for="player1">Player 1 :</label>
+		<input id="player1"
+		       name="player1"
+		       type="text">
+		<label for="player2">Player 2:</label>
+		<input id="player2"
+		       name="player2"
+		       type="text">
+		<button>Start the game</button>
+		<script>
+
+			function awaitClick() {
+				return new Promise(resolve => {
+					document.getElementById('0').addEventListener('click', () => {
+						resolve(0)
+					})
+					document.getElementById('1').addEventListener('click', () => {
+						resolve(1)
+					})
+					document.getElementById('2').addEventListener('click', () => {
+						resolve(2)
+					})
+					document.getElementById('3').addEventListener('click', () => {
+						resolve(3)
+					})
+					document.getElementById('4').addEventListener('click', () => {
+						resolve(4)
+					})
+					document.getElementById('5').addEventListener('click', () => {
+						resolve(5)
+					})
+					document.getElementById('6').addEventListener('click', () => {
+						resolve(6)
+					})
+					document.getElementById('7').addEventListener('click', () => {
+						resolve(7)
+					})
+					document.getElementById('8').addEventListener('click', () => {
+						resolve(8)
+					})
+				})
+			}
+
+			function Player(name, symbol, numberPlayer) {
+				function getName() {
+					return name
+				}
+
+				function getNumberPlayer() {
+					return numberPlayer
+				}
+
+				function getSymbol() {
+					return symbol
+				}
+
+				return {getName, getSymbol, getNumberPlayer}
+			}
+
+			const gameBoard = (function () {
+				const gameBoardArr = []
+
+				function markSpot(player, spot) {
+					if (gameBoardArr[spot] !== undefined || spot > 8 || spot < 0) {
+						return 'Error'
+					}
+					gameBoardArr[spot] = player.getSymbol()
+					return gameBoardArr
+				}
+
+				function checkWinner() {
+					if (gameBoardArr[0] === gameBoardArr[1] && gameBoardArr[1] === gameBoardArr[2] && gameBoardArr[0] !== undefined) {
+						document.getElementById('0').style.backgroundColor = 'green'
+						document.getElementById('1').style.backgroundColor = 'green'
+						document.getElementById('2').style.backgroundColor = 'green'
+						return true
+					} else if (gameBoardArr[3] === gameBoardArr[4] && gameBoardArr[4] === gameBoardArr[5] && gameBoardArr[3] !== undefined) {
+						document.getElementById('3').style.backgroundColor = 'green'
+						document.getElementById('4').style.backgroundColor = 'green'
+						document.getElementById('5').style.backgroundColor = 'green'
+						return true
+					} else if (gameBoardArr[6] === gameBoardArr[7] && gameBoardArr[7] === gameBoardArr[8] && gameBoardArr[6] !== undefined) {
+						document.getElementById('6').style.backgroundColor = 'green'
+						document.getElementById('7').style.backgroundColor = 'green'
+						document.getElementById('8').style.backgroundColor = 'green'
+						return true
+					} else if (gameBoardArr[0] === gameBoardArr[3] && gameBoardArr[3] === gameBoardArr[6] && gameBoardArr[0] !== undefined) {
+						document.getElementById('0').style.backgroundColor = 'green'
+						document.getElementById('3').style.backgroundColor = 'green'
+						document.getElementById('6').style.backgroundColor = 'green'
+						return true
+					} else if (gameBoardArr[1] === gameBoardArr[4] && gameBoardArr[4] === gameBoardArr[7] && gameBoardArr[1] !== undefined) {
+						document.getElementById('1').style.backgroundColor = 'green'
+						document.getElementById('4').style.backgroundColor = 'green'
+						document.getElementById('7').style.backgroundColor = 'green'
+						return true
+					} else if (gameBoardArr[2] === gameBoardArr[5] && gameBoardArr[5] === gameBoardArr[8] && gameBoardArr[2] !== undefined) {
+						document.getElementById('2').style.backgroundColor = 'green'
+						document.getElementById('5').style.backgroundColor = 'green'
+						document.getElementById('8').style.backgroundColor = 'green'
+						return true
+					} else if (gameBoardArr[0] === gameBoardArr[4] && gameBoardArr[4] === gameBoardArr[8] && gameBoardArr[0] !== undefined) {
+						document.getElementById('0').style.backgroundColor = 'green'
+						document.getElementById('4').style.backgroundColor = 'green'
+						document.getElementById('8').style.backgroundColor = 'green'
+						return true
+					} else if (gameBoardArr[2] === gameBoardArr[4] && gameBoardArr[4] === gameBoardArr[6] && gameBoardArr[2] !== undefined) {
+						document.getElementById('2').style.backgroundColor = 'green'
+						document.getElementById('5').style.backgroundColor = 'green'
+						document.getElementById('6').style.backgroundColor = 'green'
+						return true
+					} else {
+						return false
+					}
+				}
+
+				return {
+					gameBoardArr,
+					markSpot,
+					checkWinner
+				}
+			})()
+
+			const displayController = (function (doc) {
+
+				function displayBoard(arr) {
+					for (let i = 0; i < arr.length; i++) {
+						if (arr[i] !== undefined) {
+							doc.getElementById(i.toString()).textContent = arr[i]
+						}
+					}
+				}
+
+				return {displayBoard}
+			})(document)
+
+			async function game(player1Name, player2Name) {
+				let player1 = Player(player1Name, 'X', 1)
+				let player2 = Player(player2Name, 'O', 2)
+				let currentPlayer = player1
+				const spots = document.querySelectorAll('.spot')
+				while (!gameBoard.checkWinner()) {
+					spots.forEach(spot => {
+						spot.classList.remove('player1', 'player2')
+					})
+					spots.forEach(spot => {
+						spot.classList.add('player' + currentPlayer.getNumberPlayer())
+					})
+					let selectedDiv = await awaitClick()
+					const result = gameBoard.markSpot(currentPlayer, selectedDiv)
+					if (typeof result === 'string') {
+						alert('Erreur')
+						continue
+					}
+					displayController.displayBoard(gameBoard.gameBoardArr)
+					if (currentPlayer === player1) {
+						currentPlayer = player2
+					} else {
+						currentPlayer = player1
+					}
+				}
+				spots.forEach(spot => {
+					spot.classList.remove('player1', 'player2')
+				})
+				if (currentPlayer === player1) {
+					alert(player2.getName() + ' won the game')
+				} else {
+					alert(player1.getName() + ' won the game')
+				}
+			}
+
+			const button = document.querySelector('button')
+			const inputPlayer1 = document.getElementById('player1')
+			const inputPlayer2 = document.getElementById('player2')
+			button.addEventListener('click', () => {
+				if (inputPlayer1.value !== '' && inputPlayer2.value !== '') {
+					if (inputPlayer1.value === inputPlayer2.value) {
+						alert('Choose different players name')
+					} else {
+						button.style.display = 'none'
+						game(inputPlayer1.value, inputPlayer2.value)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

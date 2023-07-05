@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Factories function</title>
+		<link rel="stylesheet">
+	</head>
+	<body>
+		<script>
+			function Player(name, level) {
+				let health = level * 2;
+
+				function getLevel() {
+					return level
+				}
+
+				function getName() {
+					return name
+				}
+
+				function die() {
+					//
+				}
+
+				function damage(x) {
+					health -= x
+					if (x <= 0) {
+						die()
+					}
+				}
+
+				function attack(enemy) {
+					if (level < enemy.getLevel()) {
+						damage(1)
+						console.log(`${enemy.getName()} has damaged ${name}`);
+					} else {
+						enemy.damage(1);
+						console.log(`${name} has damaged ${enemy.getName()}`);
+					}
+				}
+
+				return ({attack, damage, getLevel, getName})
+			}
+
+
+			const jimmy = Player('Jim', 27)
+			const badGuy = Player('Bad guy', 12)
+			jimmy.attack(badGuy)
+
+			function Person(name) {
+				function sayName() {
+					console.log(`my name is ${name}`)
+				}
+
+				return {sayName};
+			}
+
+			function Nerd(name) {
+				// simply create a person and pull out the sayName function with destructuring assignment syntax!
+				const {sayName} = Person(name);
+
+				function doSomethingNerdy() {
+					console.log('nerd stuff');
+				}
+
+				return {sayName, doSomethingNerdy};
+			}
+
+			function NerdBadAss(name) {
+				const prototype = Person(name);
+
+				function doSomethingNerdy() {
+					console.log('nerd stuff');
+				}
+
+				return Object.assign({doSomethingNerdy}, prototype);
+			}
+
+			const jeff = Nerd('jeff');
+
+			jeff.sayName(); // my name is jeff
+			jeff.doSomethingNerdy(); // nerd stuff
+
+			const jefferson = Nerd('Jefferson')
+			jefferson.sayName()
+			jefferson.doSomethingNerdy()
+
+			// Module
+			const calculator = (() => {
+				const add = (a, b) => a + b;
+				const sub = (a, b) => a - b;
+				const mul = (a, b) => a * b;
+				const div = (a, b) => a / b;
+				return {
+					add,
+					sub,
+					mul,
+					div,
+				};
+			})();
+
+			calculator.add(3, 5); // 8
+			calculator.sub(6, 2); // 4
+			calculator.mul(14, 5534); // 77476
+		</script>
+	</body>
+</html>
