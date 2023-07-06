@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Classes</title>
+		<link rel="stylesheet">
+	</head>
+	<body>
+		<button type="submit">Click me</button>
+		<script>
+
+			const myButton = document.querySelector('button')
+			myButton.addEventListener('click', () => {
+				console.log(this) // window
+			})
+
+			let user = {
+				name: 'John',
+				surname: 'Smith',
+
+				get fullName() {
+					return `${this.name} ${this.surname}`;
+				},
+
+				set fullName(value) {
+					[this.name, this.surname] = value.split(' ');
+				}
+			};
+
+			let user2 = {
+				name: 'test',
+				surname: 'test2'
+			}
+
+			Object.defineProperty(user2, 'fullName', {
+				get() {
+					return `${this.name} ${this.surname}`;
+				},
+
+				set(value) {
+					[this.name, this.surname] = value.split(' ');
+				}
+			});
+
+			let user3 = {
+				get name() {
+					return this._name;
+				},
+
+				set name(value) {
+					if (value.length < 4) {
+						alert('Name is too short, need at least 4 characters');
+						return;
+					}
+					this._name = value;
+				}
+			};
+			console.log(user.fullName)
+			console.log(user2.fullName)
+			user2.fullName = 'Ae g'
+			console.log(user2.fullName)
+
+			class User {
+
+				constructor(name) {
+					// invokes the setter
+					this.name = name;
+				}
+
+				// setters, getters, and method are in the prototype
+				get name() {
+					return this._name;
+				}
+
+				set name(value) {
+					if (value.length < 4) {
+						alert('Name is too short.');
+						return;
+					}
+					this._name = value;
+				}
+
+				sayHi() {
+					alert(this.name);
+				}
+
+			}
+
+			class User2 {
+				name = 'John'; // class field
+				// class field is set on each individual object, not prototype
+
+				sayHi() {
+					alert(`Hello, ${this.name}!`);
+				}
+			}
+
+			class User4 {
+
+				constructor(name) {
+					this.name = name;
+				}
+
+				sayHi() {
+					alert(this.name);
+				}
+
+			}
+
+			// Usage:
+			let usr = new User4('John');
+			usr.sayHi();
+
+			class Button {
+				constructor(value) {
+					this.value = value;
+				}
+
+				click() {
+					alert(this.value);
+				}
+			}
+
+			let button = new Button('hello');
+
+			setTimeout(button.click, 1000); // undefined, because when the method is passed as an argument, the context change,
+			// therefore, 'this', is not referencing to 'button" anymore
+
+			// solution :
+			//click = () => {
+			//	alert(this.value);
+			//}
+		</script>
+	</body>
+</html>

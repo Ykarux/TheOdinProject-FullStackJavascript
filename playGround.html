@@ -7,25 +7,13 @@
 	</head>
 	<body>
 		<script>
-			const counterCreator = () => {
-				let count = 0;
-				return () => {
-					console.log(count);
-					count++;
-				};
-			};
+			function MyConstructor(name) {
+				this.name = name
+			}
 
-			const counter = counterCreator();
+			const myObj = new MyConstructor('Guillaume')
 
-			counter(); // 0
-			counter(); // 1
-			counter(); // 2
-			counter(); // 3
-
-			const secondCounter = counterCreator()
-			secondCounter()
-			secondCounter()
-			counter()
+			console.log(myObj)
 		</script>
 	</body>
 </html>
