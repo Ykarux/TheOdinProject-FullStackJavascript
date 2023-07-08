@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Fira Code';
+    src: url("./FiraCode-VariableFont_wght.ttf");
+}
+
+.hello {
+    color: red;
+    background-image: url("./icon.png");
+    font-family: 'Fira code', sans-serif;
+}
