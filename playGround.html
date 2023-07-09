@@ -7,13 +7,99 @@
 	</head>
 	<body>
 		<script>
-			function MyConstructor(name) {
-				this.name = name
+			function shapeInterface(state) {
+				return {
+					type: 'shapeInterface',
+					area() {
+						return state.area(state)
+					}
+				}
 			}
 
-			const myObj = new MyConstructor('Guillaume')
+			function solidShapeInterface(state) {
+				return {
+					type: 'solidShapeInterface',
+					volume() {
+						return state.volume(state)
+					}
+				}
+			}
 
-			console.log(myObj)
+			function manageShapeInterface(fn) {
+				return {
+					type: 'manageShapeInterface',
+					calculate() {
+						return fn()
+					}
+				}
+			}
+
+			const cubo = (length) => {
+				const proto = {
+					length,
+					type: 'Cubo',
+					area: (args) => Math.pow(args.length, 2),
+					volume: (args) => Math.pow(args.length, 3)
+				}
+				const basics = shapeInterface(proto)
+				const complex = solidShapeInterface(proto)
+				const abstraccion = manageShapeInterface(
+					() => basics.area() + complex.volume()
+				)
+				const composite = Object.assign({}, basics, abstraccion)
+				return Object.assign(Object.create(composite), {length})
+			}
+
+			console.log(cubo(5))
+
+
+			function circle(radius) {
+				const proto = {
+					type: 'Circle',
+					area(args) {
+						return Math.PI * Math.pow(args.radius, 2)
+					}
+				}
+				const basics = shapeInterface(proto)
+				const abstraccion = manageShapeInterface(() => basics.area())
+				const composite = Object.assign({}, basics, abstraccion)
+				return Object.assign(Object.create(composite), {radius})
+			}
+
+
+			function square(length) {
+				const proto = {
+					length,
+					type: 'square',
+					area(args) {
+						return Math.pow(args.length, 2)
+					}
+				}
+				const basic = shapeInterface(proto)
+				const composite = Object.assign({}, basic)
+				return Object.assign(Object.create(composite), {length})
+			}
+
+
+			function areaCalculator(shapes) {
+				const proto = {
+					sum() {
+						const area = []
+
+						for (const shape of this.shapes) {
+							area.push(shape.area())
+						}
+
+						return area.reduce((c, v) => c += v, 0)
+					},
+					output() {
+						return 'Sum of the area of of provided shapes : ' + this.sum()
+					}
+				}
+
+				return Object.assign(Object.create(proto), {shapes})
+			}
+
 		</script>
 	</body>
 </html>
