@@ -87,6 +87,17 @@
 			})
 
 			const childArray = Array.from(parent.children)
+			childArray.forEach((children) => {
+				children.addEventListener('click', () => {
+					const childArray = Array.from(parent.children)
+					childArray.forEach((children2) => {
+						children2.src = 'unfilled.svg'
+					})
+					currentlySelected = childArray.indexOf(children)
+					displaySlide(currentlySelected)
+					children.src = 'filled.svg'
+				})
+			})
 		</script>
 	</body>
 </html>
