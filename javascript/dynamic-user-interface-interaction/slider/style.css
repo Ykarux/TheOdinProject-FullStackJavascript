@@ -1,0 +1,12 @@
+.content {
+    position: relative;
+    background-color: #76AEED;
+    width: 500px;
+    height: 300px;
+}
+
+.content img {
+    position: absolute;
+    width: 400px;
+    height: 250px;
+}
