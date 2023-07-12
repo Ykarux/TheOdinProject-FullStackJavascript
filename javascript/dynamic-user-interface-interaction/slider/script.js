@@ -70,3 +70,12 @@ childArray.forEach((children) => {
 		children.src = 'filled.svg'
 	})
 })
+
+setInterval(function () {
+	next(currentlySelected, 4, parent)
+	if (currentlySelected === 4 - 1) {
+		currentlySelected = 0
+	} else {
+		currentlySelected = currentlySelected + 1
+	}
+}, 5000)
