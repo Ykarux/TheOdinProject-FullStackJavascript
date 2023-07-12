@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Dynamic user interface interaction</title>
+		<link href="./style.css"
+		      rel="stylesheet">
+	</head>
+	<body>
+		<header>
+			<div>
+				<h1 id="link1">Link 1</h1>
+				<div class="submenu">
+					<h2>Link 1.1</h2>
+					<h2>Link 1.1</h2>
+					<h2>Link 1.1</h2>
+				</div>
+			</div>
+			<div>
+				<h1>Link 2</h1>
+			</div>
+			<div>
+				<h1>Link 3</h1>
+			</div>
+			<div>
+				<h1>Link 4</h1>
+			</div>
+		</header>
+		<script>
+			let link1 = document.getElementById('link1')
+			link1.addEventListener('click', () => {
+				let subMenu = document.querySelector('.submenu')
+				if (subMenu.style.visibility === 'hidden') {
+					subMenu.style.visibility = 'visible'
+				} else {
+					subMenu.style.visibility = 'hidden'
+				}
+			})
+		</script>
+	</body>
+</html>

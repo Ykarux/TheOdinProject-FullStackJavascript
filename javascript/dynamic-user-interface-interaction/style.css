@@ -1,0 +1,42 @@
+html, body, h1, h2, h3, h4, h5, p {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    width: 80vw;
+    height: 10vh;
+    background-color: grey;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+header div:first-child {
+    position: relative;
+}
+
+#link1:hover {
+    cursor: pointer;
+}
+
+.submenu {
+    color: pink;
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    top: 75px;
+}
