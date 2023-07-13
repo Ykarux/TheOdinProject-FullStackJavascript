@@ -8,20 +8,26 @@
 	</head>
 	<body>
 		<div id="content">
-			<form>
+			<form novalidate>
 				<img alt="logo miles morales"
 				     src="miles_morales_logo.png">
 				<div>
 					<label for="email">EMAIL</label>
 					<input id="email"
+					       maxlength="50"
+					       minlength="8"
 					       name="email"
+					       required
 					       type="email">
 					<span class="error"></span>
 				</div>
 				<div>
 					<label for="country">COUNTRY</label>
 					<input id="country"
+					       maxlength="50"
+					       minlength="6"
 					       name="country"
+					       required
 					       type="text">
 					<span class="error"></span>
 				</div>
@@ -29,6 +35,8 @@
 					<label for="zcode">CODE POSTALE</label>
 					<input id="zcode"
 					       name="zcode"
+					       pattern="\d\d\d\d\d"
+					       required
 					       type="text">
 					<span class="error"></span>
 				</div>
@@ -36,6 +44,8 @@
 					<label for="pwd">PASSWORD</label>
 					<input id="pwd"
 					       name="pwd"
+					       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+					       required
 					       type="password">
 					<span class="error"></span>
 				</div>
@@ -43,11 +53,13 @@
 					<label for="pwdC">PASSWORD CONFIRMATION</label>
 					<input id="pwdC"
 					       name="pwdC"
+					       required
 					       type="password">
 					<span class="error"></span>
 				</div>
 				<button type="submit">Sign up!</button>
 			</form>
 		</div>
+		<script src="script.js"></script>
 	</body>
 </html>

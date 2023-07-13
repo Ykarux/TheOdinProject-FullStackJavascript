@@ -72,6 +72,13 @@ form button {
     color: white;
 }
 
+form button:hover {
+    background-color: white;
+    border: 1px solid white;
+    color: rgb(231, 29, 36, 0.8);
+    cursor: pointer;
+}
+
 .error {
     font-size: 8px;
     position: absolute;
