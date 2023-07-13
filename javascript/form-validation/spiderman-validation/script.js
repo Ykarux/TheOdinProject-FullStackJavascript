@@ -123,7 +123,7 @@ button.addEventListener('click', (e) => {
 	}
 })
 
-button.addEventListener('mouseover', (e) => {
+button.addEventListener('mouseover', () => {
 	if (!(email.checkValidity() && country.checkValidity() && zcode.checkValidity() && password.checkValidity() && passwordConfirmation.checkValidity())) {
 		button.style.cursor = 'not-allowed'
 	} else {
