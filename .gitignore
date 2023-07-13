@@ -5,3 +5,4 @@ javascript/webpack-output-management/node_modules
 javascript/webpack-development/node_modules
 javascript/linter/node_modules
 javascript/transpiler/node_modules
+javascript/babel/node_modules
