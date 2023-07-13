@@ -13,20 +13,35 @@
 				<div>
 					<label for="title">Title</label>
 					<input id="title"
+					       maxlength="32"
+					       minlength="8"
 					       name="title"
+					       required
 					       type="text">
+					<span aria-live="polite"
+					      class="error"></span>
 				</div>
 				<div>
 					<label for="author">Author</label>
 					<input id="author"
+					       maxlength="32"
+					       minlength="4"
 					       name="author"
+					       required
 					       type="text">
+					<span aria-live="polite"
+					      class="error"></span>
 				</div>
 				<div>
 					<label for="pagesNumber">Pages number</label>
 					<input id="pagesNumber"
+					       max="500"
+					       min="10"
 					       name="pagesNumber"
+					       required
 					       type="number">
+					<span aria-live="polite"
+					      class="error"></span>
 				</div>
 				<div>
 					<label for="readYet">Read yet?</label>
@@ -35,7 +50,7 @@
 					       type="checkbox">
 				</div>
 				<button id="addButton"
-				        type="button">Add book</button>
+				        type="submit">Add book</button>
 			</form>
 			<div class="book">
 				<h2>This is the book title</h2>
@@ -48,10 +63,49 @@
 
 		<script>
 			const inputTitle = document.getElementById('title')
+			const inputTitleError = document.querySelector('#title + span')
 			const inputAuthor = document.getElementById('author')
+			const inputAuthorError = document.querySelector('#author + span')
 			const inputPagesNumber = document.getElementById('pagesNumber')
+			const inputPagesError = document.querySelector('#pagesNumber + span')
 			const inputRead = document.getElementById('readYet')
 			const container = document.querySelector('.container')
+
+			inputTitle.addEventListener('input', () => {
+				if (inputTitle.validity.tooShort) {
+					inputTitleError.textContent = 'Enter a 8 minimum character long books title'
+				} else if (inputTitle.validity.valueMissing) {
+					inputTitleError.textContent = 'Please provide a book title'
+				} else if (inputTitle.validity.tooLong) {
+					inputTitleError.textContent = 'Enter a 32 minimum character long books title'
+				} else {
+					inputTitleError.textContent = ''
+				}
+			})
+
+			inputAuthor.addEventListener('input', () => {
+				if (inputAuthor.validity.tooShort) {
+					inputAuthorError.textContent = 'Enter a 4 minimum character long books title'
+				} else if (inputAuthor.validity.valueMissing) {
+					inputAuthorError.textContent = 'Please provide a book author'
+				} else if (inputAuthor.validity.tooLong) {
+					inputAuthorError.textContent = 'Enter a 32 minimum character long books author'
+				} else {
+					inputAuthorError.textContent = ''
+				}
+			})
+
+			inputPagesNumber.addEventListener('input', () => {
+				if (inputPagesNumber.validity.tooShort) {
+					inputPagesError.textContent = 'Enter a 10 minimum books pages number'
+				} else if (inputPagesNumber.validity.valueMissing) {
+					inputPagesError.textContent = 'Please provide a book pages number'
+				} else if (inputPagesNumber.validity.tooLong) {
+					inputPagesError.textContent = 'Enter a 500 minimum books pages number'
+				} else {
+					inputPagesError.textContent = ''
+				}
+			})
 
 			const buttonAddBook = document.getElementById('addButton')
 			buttonAddBook.addEventListener('click', addBookToLibrary)
