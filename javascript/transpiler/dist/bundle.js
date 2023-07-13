@@ -1,0 +1,1 @@
+(()=>{"use strict";console.log(5),console.log(10);console.log(Object.hasOwn({pourquoiPas:4},"pourquoiPas")),console.log(15),console.log("test")})();
