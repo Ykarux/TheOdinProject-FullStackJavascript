@@ -5,24 +5,29 @@
 		<title>Title</title>
 	</head>
 	<body>
+		<img alt="#"
+		     src="#">
+		<label for="search">Search : </label>
+		<input id="search"
+		       name="search"
+		       type="text">
+		<button type="button">Click me !</button>
 
 		<script>
-			fetch('https://api.weatherapi.com/v1/current.json?key=dacffd3a552541c682a81844232207&q=london', {
-				mode: 'cors'
-			})
-				.then(function (response) {
-					console.log(response)
+			const img = document.querySelector('img');
+			const button = document.querySelector('button');
+			const input = document.querySelector('input')
+			button.addEventListener('click', () => {
+				fetch('https://api.giphy.com/v1/gifs/translate?api_key=ojIg3mSaAgmi2xg3t9Yf0oOFq4h1q4I8&s=' + input.value, {mode: 'cors'})
+					.then(function (response) {
+						return response.json()
+					})
+					.then(function (response) {
+						img.src = response.data.images.original.url
+					}).catch((e) => {
+					console.log(e)
+					img.src = './default.avif'
 				})
-				.catch(function (err) {
-					console.log(err)
-				});
-			fetch('https://api.giphy.com/v1/gifs/translate?api_key=ojIg3mSaAgmi2xg3t9Yf0oOFq4h1q4I8&s=cats', {
-				mode: 'cors'
-			})
-				.then(function (res) {
-					console.log(res)
-				}).catch(function (err) {
-				console.log(err)
 			})
 		</script>
 	</body>
