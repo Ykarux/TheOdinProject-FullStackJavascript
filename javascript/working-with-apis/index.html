@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+	</head>
+	<body>
+
+		<script>
+			fetch('https://api.weatherapi.com/v1/current.json?key=dacffd3a552541c682a81844232207&q=london', {
+				mode: 'cors'
+			})
+				.then(function (response) {
+					console.log(response)
+				})
+				.catch(function (err) {
+					console.log(err)
+				});
+			fetch('https://api.giphy.com/v1/gifs/translate?api_key=ojIg3mSaAgmi2xg3t9Yf0oOFq4h1q4I8&s=cats', {
+				mode: 'cors'
+			})
+				.then(function (res) {
+					console.log(res)
+				}).catch(function (err) {
+				console.log(err)
+			})
+		</script>
+	</body>
+</html>
