@@ -92,6 +92,20 @@
 					return (pointer.value === value)
 				}
 
+				function find(value) {
+					let pointer = headNode
+					let index = 0
+					while (pointer.nextNode !== null) {
+						if (pointer.value === value) {
+							return index
+						}
+						index++
+						pointer = pointer.nextNode
+					}
+					return (pointer.value === value) ? true : null
+				}
+
+
 				return {
 					size,
 					head,
@@ -100,7 +114,8 @@
 					tail,
 					at,
 					pop,
-					contains
+					contains,
+					find
 				}
 			}
 		</script>
