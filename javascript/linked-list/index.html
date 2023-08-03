@@ -122,6 +122,13 @@
 					const newNode = Node(value)
 					previous.nextNode = newNode
 					newNode.nextNode = current
+					length++
+				}
+
+				function removeAt(index) {
+					let previous = at(index - 1)
+					previous.nextNode = at(index + 1)
+					length--
 				}
 
 
@@ -136,7 +143,8 @@
 					contains,
 					find,
 					toString,
-					insertAt
+					insertAt,
+					removeAt
 				}
 			}
 		</script>
