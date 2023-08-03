@@ -72,13 +72,23 @@
 					return pointer
 				}
 
+				function pop() {
+					let pointer = headNode
+					while (pointer.nextNode === null) {
+						pointer = pointer.nextNode
+					}
+					pointer.nextNode = null
+					length--
+				}
+
 				return {
 					size,
 					head,
 					append,
 					prepend,
 					tail,
-					at
+					at,
+					pop
 				}
 			}
 		</script>
