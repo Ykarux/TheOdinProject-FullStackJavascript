@@ -61,12 +61,24 @@
 					return pointer
 				}
 
+				function at(index) {
+					if (headNode === null || index < 0) {
+						return null
+					}
+					let pointer = headNode
+					for (let i = 0; i < index; i++) {
+						pointer = pointer.nextNode
+					}
+					return pointer
+				}
+
 				return {
 					size,
 					head,
 					append,
 					prepend,
-					tail
+					tail,
+					at
 				}
 			}
 		</script>
