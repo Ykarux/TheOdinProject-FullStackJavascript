@@ -32,10 +32,21 @@
 					pointer.nextNode = newNode
 				}
 
+				function prepend(value) {
+					const newNode = Node(value)
+					length++
+					if (head === null) {
+						head = newNode
+					}
+					newNode.nextNode = head
+					head = newNode
+				}
+
 				return {
 					length,
 					head,
-					append
+					append,
+					prepend
 				}
 			}
 		</script>
