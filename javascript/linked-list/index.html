@@ -17,15 +17,15 @@
 
 			function LinkedList() {
 				let length = 0
-				let head = null
+				let headNode = null
 
 				function append(value) {
 					const newNode = Node(value)
 					length++
-					if (head === null) {
-						head = newNode
+					if (headNode === null) {
+						headNode = newNode
 					}
-					let pointer = head
+					let pointer = headNode
 					while (pointer.nextNode === null) {
 						pointer = pointer.nextNode
 					}
@@ -35,16 +35,21 @@
 				function prepend(value) {
 					const newNode = Node(value)
 					length++
-					if (head === null) {
-						head = newNode
+					if (headNode === null) {
+						headNode = newNode
 					}
-					newNode.nextNode = head
-					head = newNode
+					newNode.nextNode = headNode
+					headNode = newNode
 				}
 
+				function size() {
+					return length
+				}
+
+
 				return {
-					length,
-					head,
+					size,
+
 					append,
 					prepend
 				}
