@@ -105,6 +105,17 @@
 					return (pointer.value === value) ? true : null
 				}
 
+				function toString() {
+					let str = ''
+					let pointer = headNode
+					while (pointer.nextNode !== null) {
+						str += '(' + pointer.value + ') -> '
+						pointer = pointer.nextNode
+					}
+					str += '(' + pointer.value + ') -> null'
+					return str
+				}
+
 
 				return {
 					size,
@@ -115,7 +126,8 @@
 					at,
 					pop,
 					contains,
-					find
+					find,
+					toString
 				}
 			}
 		</script>
