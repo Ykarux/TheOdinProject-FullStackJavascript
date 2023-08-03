@@ -116,6 +116,14 @@
 					return str
 				}
 
+				function insertAt(value, index) {
+					let previous = at(index - 1)
+					let current = at(index)
+					const newNode = Node(value)
+					previous.nextNode = newNode
+					newNode.nextNode = current
+				}
+
 
 				return {
 					size,
@@ -127,7 +135,8 @@
 					pop,
 					contains,
 					find,
-					toString
+					toString,
+					insertAt
 				}
 			}
 		</script>
