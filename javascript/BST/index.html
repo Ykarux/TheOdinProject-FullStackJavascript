@@ -33,11 +33,27 @@
 					return newNode
 				}
 
-				return root
+				function insert(value, node = root) {
+					if (node === null) {
+						node = Node(value)
+						return node
+					}
+					if (value < node.value) {
+						node.left = insert(value, node.left)
+					} else {
+						node.right = insert(value, node.right)
+					}
+
+					return node
+				}
+
+				return {
+					root,
+					insert
+				}
 			}
 
-			const mytree = Tree([1, 2, 3, 4, 5])
-			console.log(mytree)
+			const myTree = Tree([1, 2, 3, 4, 5, 6, 7])
 
 			const prettyPrint = (node, prefix = '', isLeft = true) => {
 				if (node === null) {
@@ -52,7 +68,9 @@
 				}
 			};
 
-			prettyPrint(mytree)
+			myTree.insert(8)
+			console.log(myTree)
+			prettyPrint(myTree.root)
 		</script>
 	</body>
 </html>
