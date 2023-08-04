@@ -124,13 +124,23 @@
 					preOrder(func, node.right)
 				}
 
+				function inOrder(func, node = root) {
+					if (node === null) {
+						return null
+					}
+					inOrder(func, node.left)
+					func(node.value)
+					inOrder(func, node.right)
+				}
+
 				return {
 					root,
 					insert,
 					deleteNode,
 					find,
 					levelOrder,
-					preOrder
+					preOrder,
+					inOrder
 				}
 			}
 
@@ -155,8 +165,7 @@
 				console.log(data)
 			}
 
-			myTree.insert(8)
-			myTree.preOrder(logger)
+			myTree.inOrder(logger)
 		</script>
 	</body>
 </html>
