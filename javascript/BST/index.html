@@ -115,12 +115,22 @@
 					}
 				}
 
+				function preOrder(func, node = root) {
+					if (node === null) {
+						return null
+					}
+					func(node.value)
+					preOrder(func, node.left)
+					preOrder(func, node.right)
+				}
+
 				return {
 					root,
 					insert,
 					deleteNode,
 					find,
-					levelOrder
+					levelOrder,
+					preOrder
 				}
 			}
 
@@ -146,7 +156,7 @@
 			}
 
 			myTree.insert(8)
-			myTree.levelOrder(logger)
+			myTree.preOrder(logger)
 		</script>
 	</body>
 </html>
