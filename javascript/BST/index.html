@@ -96,11 +96,31 @@
 					}
 				}
 
+				function levelOrder(func, node = root) {
+					if (node === null) {
+						return null
+					}
+					const arr = []
+					arr.push(node)
+					while (arr.length !== 0) {
+						let current = arr[0]
+						func(current.value)
+						if (current.left !== null) {
+							arr.push(current.left)
+						}
+						if (current.right !== null) {
+							arr.push(current.right)
+						}
+						arr.shift()
+					}
+				}
+
 				return {
 					root,
 					insert,
 					deleteNode,
-					find
+					find,
+					levelOrder
 				}
 			}
 
@@ -119,12 +139,14 @@
 				}
 			};
 
+			prettyPrint(myTree.root)
+
+			function logger(data) {
+				console.log(data)
+			}
+
 			myTree.insert(8)
-			prettyPrint(myTree.root)
-			console.log('--')
-			myTree.deleteNode(7)
-			prettyPrint(myTree.root)
-			console.log(myTree.find(6))
+			myTree.levelOrder(logger)
 		</script>
 	</body>
 </html>
