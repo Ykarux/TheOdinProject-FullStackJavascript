@@ -83,10 +83,24 @@
 					}
 				}
 
+				function find(value, node = root) {
+					if (node === null) {
+						return null
+					}
+					if (node.value === value) {
+						return node
+					} else if (node.value < value) {
+						return find(value, node.right)
+					} else {
+						return find(value, node.left)
+					}
+				}
+
 				return {
 					root,
 					insert,
-					deleteNode
+					deleteNode,
+					find
 				}
 			}
 
@@ -110,6 +124,7 @@
 			console.log('--')
 			myTree.deleteNode(7)
 			prettyPrint(myTree.root)
+			console.log(myTree.find(6))
 		</script>
 	</body>
 </html>
