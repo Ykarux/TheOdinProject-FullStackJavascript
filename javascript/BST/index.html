@@ -142,6 +142,19 @@
 					func(node.value)
 				}
 
+				function height(node = root) {
+					if (node === null) {
+						return -1;
+					}
+
+
+					const leftHeight = height(node.left);
+					const rightHeight = height(node.right);
+
+					return 1 + Math.max(leftHeight, rightHeight);
+				}
+
+
 				return {
 					root,
 					insert,
@@ -150,7 +163,10 @@
 					levelOrder,
 					preOrder,
 					inOrder,
-					postOrder
+					postOrder,
+					height,
+					depth,
+					isBalanced
 				}
 			}
 
@@ -170,12 +186,6 @@
 			};
 
 			prettyPrint(myTree.root)
-
-			function logger(data) {
-				console.log(data)
-			}
-
-			myTree.postOrder(logger)
 		</script>
 	</body>
 </html>
