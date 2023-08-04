@@ -154,6 +154,20 @@
 					return 1 + Math.max(leftHeight, rightHeight);
 				}
 
+				function depth(value, currentNode = root) {
+					if (currentNode === null) {
+						return -1
+					}
+
+					if (value === currentNode.value) {
+						return 0
+					} else if (value > currentNode.value) {
+						return 1 + depth(value, currentNode.right)
+					} else {
+						return 1 + depth(value, currentNode.left)
+					}
+				}
+
 
 				return {
 					root,
