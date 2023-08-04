@@ -133,6 +133,15 @@
 					inOrder(func, node.right)
 				}
 
+				function postOrder(func, node = root) {
+					if (node === null) {
+						return null
+					}
+					postOrder(func, node.left)
+					postOrder(func, node.right)
+					func(node.value)
+				}
+
 				return {
 					root,
 					insert,
@@ -140,7 +149,8 @@
 					find,
 					levelOrder,
 					preOrder,
-					inOrder
+					inOrder,
+					postOrder
 				}
 			}
 
@@ -165,7 +175,7 @@
 				console.log(data)
 			}
 
-			myTree.inOrder(logger)
+			myTree.postOrder(logger)
 		</script>
 	</body>
 </html>
