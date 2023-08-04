@@ -179,6 +179,18 @@
 					return Math.abs(leftHeight - rightHeight) <= 1 && isBalanced(node.left) && isBalanced(node.right);
 				}
 
+				function reBalance() {
+					const nodeList = [];
+
+					function addToList(data) {
+						nodeList.push(data);
+					}
+
+					levelOrder(addToList);
+					nodeList.sort((a, b) => a - b);
+					return buildTree(nodeList, 0, nodeList.length - 1);
+				}
+
 				return {
 					root,
 					insert,
@@ -190,7 +202,8 @@
 					postOrder,
 					height,
 					depth,
-					isBalanced
+					isBalanced,
+					reBalance
 				}
 			}
 
@@ -209,7 +222,12 @@
 				}
 			};
 
+			myTree.insert(8)
+			myTree.insert(9)
 			prettyPrint(myTree.root)
+			myTree.root = myTree.reBalance()
+			prettyPrint(myTree.root)
+			console.log(myTree.root)
 		</script>
 	</body>
 </html>
