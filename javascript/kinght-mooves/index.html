@@ -6,14 +6,44 @@
 	</head>
 	<body>
 		<script>
-			const board = []
-			for (let i = 0; i < 8; i++) {
-				for (let j = 0; j < 8; j++) {
-					board.push([i, j])
+			function Node(position) {
+				const possibleMoves = []
+				return {
+					position,
+					possibleMoves
 				}
 			}
-			console.log(board)
 
+			function checkPosition(position) {
+				if (position[0] > 8 || position[0] < 0 || position[1] < 0 || position[1] > 8) {
+					return null
+				} else {
+					return position
+				}
+			}
+
+			function knightMove(node, depth) {
+				if (node.position === null || depth <= 0) {
+					return
+				}
+				node.possibleMoves.push(Node(checkPosition([node.position[0] + 2, node.position[1] + 1])))
+				node.possibleMoves.push(Node(checkPosition([node.position[0] + 2, node.position[1] - 1])))
+				node.possibleMoves.push(Node(checkPosition([node.position[0] - 2, node.position[1] + 1])))
+				node.possibleMoves.push(Node(checkPosition([node.position[0] - 2, node.position[1] - 1])))
+				node.possibleMoves.push(Node(checkPosition([node.position[0] + 1, node.position[1] + 2])))
+				node.possibleMoves.push(Node(checkPosition([node.position[0] + 1, node.position[1] - 2])))
+				node.possibleMoves.push(Node(checkPosition([node.position[0] - 1, node.position[1] + 2])))
+				node.possibleMoves.push(Node(checkPosition([node.position[0] - 1, node.position[1] - 2])))
+				for (const possibleMove of node.possibleMoves) {
+					knightMove(possibleMove, depth - 1)
+				}
+			}
+
+			const knightPosition = Node([4, 4])
+			knightMove(knightPosition, 5)
+			console.log(knightPosition)
+
+			
 		</script>
 	</body>
 </html>
