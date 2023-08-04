@@ -47,9 +47,46 @@
 					return node
 				}
 
+				function deleteNode(value, node = root) {
+					if (node === null) {
+						return node
+					}
+
+
+					if (node.value > value) {
+						node.left = deleteNode(value, node.left)
+						return node;
+					} else if (node.value < value) {
+						node.right = deleteNode(value, node.right)
+						return node;
+					}
+
+					if (node.left === null) {
+						return node.right
+					} else if (node.right === null) {
+						return node.left
+					} else {
+						let succParent = node
+						let succ = node.right
+						while (succ.left !== null) {
+							succParent = succ
+							succ = succ.left
+						}
+						if (succParent !== node) {
+							succParent.left = succ.right
+						} else {
+							succParent.right = succ.right
+						}
+
+						node.value = succ.value
+						return node
+					}
+				}
+
 				return {
 					root,
-					insert
+					insert,
+					deleteNode
 				}
 			}
 
@@ -69,7 +106,9 @@
 			};
 
 			myTree.insert(8)
-			console.log(myTree)
+			prettyPrint(myTree.root)
+			console.log('--')
+			myTree.deleteNode(7)
 			prettyPrint(myTree.root)
 		</script>
 	</body>
