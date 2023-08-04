@@ -168,6 +168,16 @@
 					}
 				}
 
+				function isBalanced(node = root) {
+					if (node === null) {
+						return true;
+					}
+
+					const leftHeight = height(node.left);
+					const rightHeight = height(node.right);
+
+					return Math.abs(leftHeight - rightHeight) <= 1 && isBalanced(node.left) && isBalanced(node.right);
+				}
 
 				return {
 					root,
