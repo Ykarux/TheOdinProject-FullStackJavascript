@@ -1,2 +1,2 @@
 const myVar = 5
-const mySecondVar = 6
+const mySecondVar = 4
