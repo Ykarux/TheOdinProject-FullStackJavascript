@@ -37,4 +37,17 @@ function caesarCipher(string, key) {
 	return result
 }
 
-module.exports = {capitalize, reverseString, calculator, caesarCipher}
+function analyseArray(arr) {
+	const min = Math.min(arr)
+	const max = Math.max(arr)
+	const avg = arr.reduce((a, b) => a + b, 0) / arr.length
+	const length = arr.length
+	return {
+		min,
+		max,
+		avg,
+		length
+	}
+}
+
+module.exports = {capitalize, reverseString, calculator, caesarCipher, analyseArray}

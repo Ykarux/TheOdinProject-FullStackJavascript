@@ -1,4 +1,4 @@
-const {capitalize, reverseString, calculator, caesarCipher} = require('./index')
+const {capitalize, reverseString, calculator, caesarCipher, analyseArray} = require('./index')
 
 test('capitalize', () => {
 	expect(capitalize('string')).toMatch('String')
