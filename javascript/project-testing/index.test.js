@@ -18,3 +18,10 @@ test('calculator', () => {
 test('caesarCipher', () => {
 	expect(caesarCipher('defend the east wall of the castle', 1)).toMatch('efgfoe uif fbtu xbmm pg uif dbtumf')
 })
+
+test('analyseArray', () => {
+	expect(analyseArray([1, 8, 3, 4, 2, 6]).length).toEqual(6);
+	expect(analyseArray([1, 8, 3, 4, 2, 6]).min).toEqual(1);
+	expect(analyseArray([1, 8, 3, 4, 2, 6]).max).toEqual(8);
+	expect(analyseArray([1, 8, 3, 4, 2, 6]).avg).toEqual(4);
+})

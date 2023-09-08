@@ -38,8 +38,8 @@ function caesarCipher(string, key) {
 }
 
 function analyseArray(arr) {
-	const min = Math.min(arr)
-	const max = Math.max(arr)
+	const min = Math.min(...arr)
+	const max = Math.max(...arr)
 	const avg = arr.reduce((a, b) => a + b, 0) / arr.length
 	const length = arr.length
 	return {
