@@ -21,4 +21,17 @@ const calculator = {
 	},
 }
 
-module.exports = {capitalize, reverseString, calculator}
+function caesarCipher(string, key) {
+	const letters = 'abcdefghijklmnopqrstuvwxyz'
+	const result = ''
+	for (let i = 0; i < string.length; i++) {
+		if (letters.includes(string.charAt(i))) {
+			const isCap = (string.charAt(i) === string.charAt(i).toUpperCase())
+			const letter = letters.charAt((letters.indexOf(string.charAt(i)) + key) % 26)
+			result += isCap ? letter.toUpperCase() : letter
+		}
+	}
+	return result
+}
+
+module.exports = {capitalize, reverseString, calculator, caesarCipher}
