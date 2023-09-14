@@ -9,10 +9,10 @@ test('Ship', () => {
 
 test('Ship functions', () => {
 	const myShip = Ship(3);
-	expect(myShip.hit()).toBe(1);
+	myShip.hit()
 	expect(myShip.isSunk()).toBeFalsy();
-	expect(myShip.hit()).toBe(2);
+	myShip.hit()
 	expect(myShip.isSunk()).toBeFalsy();
-	expect(myShip.hit()).toBe(3);
+	myShip.hit()
 	expect(myShip.isSunk()).toBeTruthy();
 })

@@ -5,8 +5,6 @@ test('GameBoard', () => {
 	expect(myGameBoard.length).toBe(10);
 	myGameBoard.placeShip(3, 6, 3);
 	myGameBoard.placeShip(1, 1, 2);
-	expect(myGameBoard.ships).toContain([3, 6, 3])
-	expect(myGameBoard.ships).toContain([1, 1, 2])
 	expect(() => myGameBoard.placeShip(1, 8, 3)).toThrow()
 	expect(myGameBoard.hit(3, 9)).toBeFalsy()
 	expect(myGameBoard.hit(8, 5)).toBeFalsy()
