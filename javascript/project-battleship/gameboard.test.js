@@ -1,5 +1,4 @@
 const {GameBoard} = require('./gameboard');
-const {Ship} = require('./ship');
 
 test('GameBoard', () => {
 	const myGameBoard = GameBoard(10);
@@ -8,6 +7,7 @@ test('GameBoard', () => {
 	myGameBoard.placeShip(1, 1, 2);
 	expect(myGameBoard.ships).toContain([3, 6, 3])
 	expect(myGameBoard.ships).toContain([1, 1, 2])
+	expect(() => myGameBoard.placeShip(1, 8, 3)).toThrow()
 	expect(myGameBoard.hit(3, 9)).toBeFalsy()
 	expect(myGameBoard.hit(8, 5)).toBeFalsy()
 	expect(myGameBoard.areShipsSunk()).toBeFalsy()
