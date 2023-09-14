@@ -10,5 +10,3 @@ function Player(name) {
 		attack,
 	}
 }
-
-module.exports = {Player}

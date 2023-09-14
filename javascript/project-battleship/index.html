@@ -7,6 +7,113 @@
 		      rel="stylesheet">
 	</head>
 	<body>
+		<form>
+			<label for="name">Nom du joueur : </label>
+			<input id="name"
+			       name="name"
+			       type="text">
+			<button id="start"
+			        type="button">Start</button>
+		</form>
+		<script src="gameboard.js"></script>
+		<script src="player.js"></script>
+		<script src="ship.js"></script>
+		<script>
+			const startButton = document.getElementById('start')
+			let playerName = ''
+			startButton.addEventListener('click', () => {
+				playerName = document.getElementById('name').value
+				clearContent()
+				game()
+			})
 
+			function clearContent() {
+				const form = document.querySelector('form');
+				form.parentNode.removeChild(form);
+			}
+
+			function displayGame(gameboardSize) {
+				const body = document.querySelector('body')
+				const containerGameBoards = document.createElement('div')
+				containerGameBoards.classList.add('containerGameBoards')
+				const playerGameBoard = document.createElement('div')
+				playerGameBoard.classList.add('gameBoard')
+				playerGameBoard.id = 'playerGameBoard'
+				for (let i = 0; i < gameboardSize; i++) {
+					for (let j = 0; j < gameboardSize; j++) {
+						const singleCase = document.createElement('div')
+						singleCase.classList.add('singleCase')
+						playerGameBoard.appendChild(singleCase)
+					}
+				}
+				containerGameBoards.appendChild(playerGameBoard)
+				const robotGameBoard = document.createElement('div')
+				robotGameBoard.classList.add('gameBoard')
+				robotGameBoard.id = 'robotGameBoard'
+				for (let i = 0; i < gameboardSize; i++) {
+					for (let j = 0; j < gameboardSize; j++) {
+						const singleCase = document.createElement('div')
+						singleCase.classList.add('singleCase')
+						robotGameBoard.appendChild(singleCase)
+					}
+				}
+				containerGameBoards.appendChild(robotGameBoard)
+				body.appendChild(containerGameBoards)
+			}
+
+			function displayFormPlaceShip() {
+				const xInput = document.createElement('input')
+				const yInput = document.createElement('input')
+				const lengthInput = document.createElement('input')
+				const placeButton = document.createElement('button')
+				placeButton.textContent = 'Place Ship'
+				const body = document.querySelector('body')
+				body.appendChild(xInput)
+				body.appendChild(yInput)
+				body.appendChild(lengthInput)
+				body.appendChild(placeButton)
+				let shipNum = 0
+				placeButton.addEventListener('click', () => {
+					const x = parseInt(xInput.value)
+					const y = parseInt(yInput.value)
+					const len = parseInt(lengthInput.value)
+					const playerGameBoard = document.getElementById('playerGameBoard')
+					for (let i = 0; i < len; i++) {
+						playerGameBoard.childNodes[x * 10 + y + i].style.backgroundColor = 'red';
+					}
+					addShipPlayer(x, y, len)
+					shipNum++;
+					if (shipNum === 3) {
+						body.removeChild(xInput)
+						body.removeChild(yInput)
+						body.removeChild(lengthInput)
+						body.removeChild(placeButton)
+					}
+				})
+			}
+
+			function displayFormGame() {
+				const xInput = document.createElement('input')
+				const yInput = document.createElement('input')
+				const hitButton = document.createElement('button')
+				hitButton.textContent = 'Hit'
+				const body = document.querySelector('body')
+			}
+
+			function addShipPlayer() {
+
+			}
+
+
+			function initializeGame() {
+				displayGame(playerGameBoard.length)
+				displayFormPlaceShip()
+			}
+
+			function game() {
+				const playerGameBoard = GameBoard(10)
+				initializeGame()
+			}
+		</script>
 	</body>
 </html>

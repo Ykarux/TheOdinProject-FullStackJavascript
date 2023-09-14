@@ -1,0 +1,17 @@
+.containerGameBoards {
+    display: flex;
+    gap: 50px;
+    padding: 50px;
+}
+
+.gameBoard {
+    display: grid;
+    grid-template-columns: repeat(10, 40px);
+    grid-template-rows: repeat(10, 40px);
+}
+
+.singleCase {
+    height: auto;
+    width: auto;
+    border: 1px solid black;
+}

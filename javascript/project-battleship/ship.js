@@ -20,5 +20,3 @@ function Ship(length) {
 		isSunk,
 	}
 }
-
-module.exports = {Ship}

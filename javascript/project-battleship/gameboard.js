@@ -1,5 +1,3 @@
-const {Ship} = require('./ship')
-
 function GameBoard(length) {
 	const ships = []
 	const shotsList = []
@@ -44,5 +42,3 @@ function GameBoard(length) {
 		hit,
 	}
 }
-
-module.exports = {GameBoard}
