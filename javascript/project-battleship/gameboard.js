@@ -8,14 +8,14 @@ function GameBoard(length) {
 		if (x + shipLength > length || y + shipLength > length) {
 			throw new Error(`Can't place a ship here`);
 		} else {
-			const ship = Ship(length);
+			const ship = Ship(shipLength);
 			ships.push([x, y, ship]);
 		}
 	}
 
 	function hit(x, y) {
 		for (const ship of ships) {
-			if (ship[0] === x && ship[1] === y) {
+			if (ship[0] === x && (y >= ship[1] && y < ship[1] + ship[2].length)) {
 				ship[2].hit()
 				shotsList.push([x, y, true])
 				return true;
