@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Animation</title>
+		<link href="./style.css"
+		      rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<div id="ball"></div>
+			<div id="text"></div>
+		</div>
+		<script>
+			const ball = document.getElementById('ball')
+			ball.addEventListener('animationstart', animationStart)
+			ball.addEventListener('animationend', animationEnd);
+			ball.addEventListener('animationiteration', animationIterate, false);
+
+			function animationStart() {
+				const text = document.getElementById('text')
+				text.textContent = 'Start'
+			}
+
+			function animationEnd() {
+				const text = document.getElementById('text')
+				text.textContent = 'End'
+			}
+
+			function animationIterate() {
+				const text = document.getElementById('text')
+				text.textContent = 'Iterate'
+			}
+		</script>
+	</body>
+</html>
