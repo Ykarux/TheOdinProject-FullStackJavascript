@@ -1,0 +1,22 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    height: 100vh;
+    width: 100vw;
+    background-color: blue;
+}
+
+@media screen and (max-width: 1000px) {
+    main {
+        background-color: green;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    main {
+        background-color: red;
+    }
+}
