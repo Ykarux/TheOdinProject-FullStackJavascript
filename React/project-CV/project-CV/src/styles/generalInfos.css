@@ -1,9 +1,23 @@
 .generalInfos {
     padding: 12px;
     font-size: 14px;
-    border: 1px solid grey;
+    border: 1px solid yellow;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.icon-edit {
+    position: relative;
+    left: 60px;
 }
 
 #edit-generalInfos {
     background-color: rgba(64, 127, 199, 1);
+}
+
+
+.container-general-infos p {
+    padding: 0;
+    margin: 0;
 }

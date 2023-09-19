@@ -16,12 +16,12 @@ function GeneralInfos() {
 		setEmail(emailInput.value)
 		setAddress(addressInput.value)
 		setPhone(phoneInput.value)
-		document.querySelector('.container-main').classList.remove('backdrop')
+		document.querySelector('body').classList.remove('backdrop')
 		document.getElementById('edit-generalInfos').style.display = 'none';
 	}
 
 	function edit() {
-		document.querySelector('.container-main').classList.add('backdrop')
+		document.querySelector('body').classList.add('backdrop')
 		document.getElementById('edit-generalInfos').style.display = 'block';
 	}
 

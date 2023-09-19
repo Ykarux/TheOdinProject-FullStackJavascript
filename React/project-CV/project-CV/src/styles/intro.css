@@ -1,0 +1,13 @@
+.intro {
+    max-width: 600px;
+    padding: 12px;
+    border: 1px solid yellow;
+}
+
+.container-intro {
+    font-size: 14px;
+}
+
+#edit-Intro {
+    background-color: rgba(64, 127, 199, 1);
+}

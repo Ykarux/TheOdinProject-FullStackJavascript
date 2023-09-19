@@ -1,4 +1,16 @@
-html, body {
+body {
     margin: 0;
     padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(64, 127, 199, 1);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+body.backdrop {
+    background-color: rgba(64, 127, 199, 0.3);
 }

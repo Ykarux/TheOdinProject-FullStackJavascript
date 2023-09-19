@@ -3,8 +3,8 @@ import '../styles/edit.css'
 function Edit({children, id, handleSubmit}) {
 
 	function handleCancel() {
-		document.querySelector('.container-main').classList.remove('backdrop')
-		document.getElementById('edit-generalInfos').style.display = 'none';
+		document.querySelector('body').classList.remove('backdrop')
+		document.getElementById(id).style.display = 'none';
 	}
 
 	return (
