@@ -1,0 +1,9 @@
+.generalInfos {
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid grey;
+}
+
+#edit-generalInfos {
+    background-color: rgba(64, 127, 199, 1);
+}

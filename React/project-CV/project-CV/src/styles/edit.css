@@ -1,0 +1,9 @@
+.container-edit {
+    display: none;
+    position: absolute;
+    padding: 18px;
+    border: 1px solid green;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
