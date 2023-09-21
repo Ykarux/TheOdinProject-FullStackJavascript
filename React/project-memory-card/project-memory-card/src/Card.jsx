@@ -20,7 +20,7 @@ function Card({id, handleClick}) {
 		     onClick={handleClick}
 		     id={'pokemon' + id}>
 			<img src={url}
-			     alt={'Pokemon ' + id}/>
+			     alt={'Pokemon.jsx ' + id}/>
 			<h2>{name}</h2>
 		</div>
 	)
