@@ -1,22 +1,28 @@
-const http = require('http');
-const fs = require('fs')
+const express = require('express');
+const fs = require('fs');
+const app = express();
+const port = 3000;
 
-const server = http.createServer(function (req, res) {
-	if (req.method === 'GET' && req.url === '/') {
-		const indexFile = fs.readFileSync('./index.html')
-		res.end(indexFile)
-	} else if (req.method === 'GET' && req.url === '/about') {
-		const aboutFile = fs.readFileSync('./about.html')
-		res.end(aboutFile)
-	} else if (req.method === 'GET' && req.url === '/contact-me') {
-		const contactMeFile = fs.readFileSync('./contact-me.html')
-		res.end(contactMeFile)
-	} else {
-		const errorFile = fs.readFileSync('./404.html')
-		res.end(errorFile)
-	}
+app.get('/', (req, res) => {
+	const indexFile = fs.readFileSync('./index.html')
+	res.send(indexFile);
 });
 
-server.listen(8081, () => {
-	console.log('Server is running on https://localhost:8081');
+app.get('/about', (req, res) => {
+	const aboutFile = fs.readFileSync('./about.html')
+	res.send(aboutFile)
+})
+
+app.get('/contact-me', (req, res) => {
+	const contactMeFile = fs.readFileSync('./contact-me.html')
+	res.send(contactMeFile)
+})
+
+app.use((req, res) => {
+	const file404 = fs.readFileSync('./404.html')
+	res.status(404).send(file404)
+})
+
+app.listen(port, () => {
+	console.log(`Example app listening on port ${port}!`);
 });
