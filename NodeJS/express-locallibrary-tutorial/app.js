@@ -8,6 +8,16 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
+// Set up mongoose connection
+const mongoose = require('mongoose');
+mongoose.set('strictQuery', false);
+const mongoDB = 'mongodb+srv://guillaumegiannantonio:735KmPrRat6GUT2@cluster0.ygnhxhj.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp';
+
+main().catch((err) => console.log(err));
+
+async function main() {
+	await mongoose.connect(mongoDB);
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
